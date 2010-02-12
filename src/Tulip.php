@@ -11,13 +11,13 @@ require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . "Tulip" . DIRECTORY_SE
  * 
  *     public $module = "MyUnitTest's module name";
  * 
- * 	   public $labels = array(
+ *     public $labels = array(
  *         
  *         "func1" => "func1's title",
  *         "func2" => "func2's title",
  *         // ...
  *         "funcN" => "funcN's title"
- * 	   );
+ *     );
  * 
  *     public function func1() {
  *         // Tests
