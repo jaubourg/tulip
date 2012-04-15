@@ -335,11 +335,11 @@ abstract class Tulip {
 			}
 			
 			// Control we have all expected tests (if needs be)
-			$this->current->checkExpected();			
+			$this->current->checkExpected();
+
+			// Forget about the current
+			unset( $this->current );
 		}
-		
-		// Forget about the current
-		unset( $this->current );
 	}
 	
 	/**
