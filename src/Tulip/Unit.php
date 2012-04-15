@@ -91,7 +91,7 @@ class Tulip_Unit {
 	 */
 	public final function add( $pass, $text , $count = true ) {
 		
-		$this->tests[] =& new Tulip_Test( $pass && $count , $text );
+		$this->tests[] = new Tulip_Test( $pass && $count , $text );
 		
 		if ( $count ) {
 			

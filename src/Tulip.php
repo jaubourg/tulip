@@ -317,7 +317,7 @@ abstract class Tulip {
 			}
 			
 			// Create a unit test repository and set it as current
-			$this->current =& new Tulip_Unit( $name );
+			$this->current = new Tulip_Unit( $name );
 			
 			// Add to the module
 			$module->add( $this->current );
