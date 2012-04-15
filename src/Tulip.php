@@ -343,6 +343,16 @@ abstract class Tulip {
 	}
 	
 	/**
+	 * A variant of var_export that is recursion-safe
+	 * @param mixed $mixed the value to be exported
+	 */
+	public final function var_export( &$mixed ) {
+		ob_start();
+		var_dump( $mixed );
+		return ob_get_clean();
+	}
+	
+	/**
 	 * Specifies how many tests the unit currently ran is supposed to issue.
 	 *
 	 * @param number $n
@@ -375,7 +385,7 @@ abstract class Tulip {
 	public final function equal( $actual , $expected , $message = false ) {
 		$this->ok(
 			$actual == $expected , 
-			( $message ? "$message - " : "" ) . ( var_export( $expected , true ) . "==" . var_export( $actual ,true ) )
+			( $message ? "$message - " : "" ) . ( $this->var_export( $expected ) . "==" . $this->var_export( $actual ) )
 		);
 	}
 	
@@ -391,7 +401,7 @@ abstract class Tulip {
 	public final function notEqual( $actual , $expected , $message = false ) {
 		$this->ok(
 			$actual != $expected , 
-			( $message ? "$message - " : "" ) . ( var_export( $expected , true ) . "!=" . var_export( $actual ,true ) )
+			( $message ? "$message - " : "" ) . ( $this->var_export( $expected ) . "!=" . $this->var_export( $actual ) )
 		);
 	}
 	
@@ -407,7 +417,7 @@ abstract class Tulip {
 	public final function strictEqual( &$actual , &$expected , $message = false ) {
 		$this->ok(
 			$actual === $expected , 
-			( $message ? "$message - " : "" ) . ( var_export( $expected , true ) . "===" . var_export( $actual ,true ) )
+			( $message ? "$message - " : "" ) . ( $this->var_export( $expected ) . "===" . $this->var_export( $actual ) )
 		);
 	}
 	
@@ -423,7 +433,7 @@ abstract class Tulip {
 	public final function notStrictEqual( &$actual , &$expected , $message = false ) {
 		$this->ok(
 			$actual !== $expected , 
-			( $message ? "$message - " : "" ) . ( var_export( $expected , true ) . "!==" . var_export( $actual ,true ) )
+			( $message ? "$message - " : "" ) . ( $this->var_export( $expected ) . "!==" . $this->var_export( $actual ) )
 		);
 	}
 	
