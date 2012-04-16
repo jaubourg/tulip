@@ -92,7 +92,7 @@
 ?>
 	</ol>
 	<p id="tulip-result">
-		Tests completed in <?= number_format ( ( microtime() - Tulip::config( "START_TIME" ) ) / 1000 , 2 ) ?> milliseconds.
+		Tests completed in <?= number_format ( ( microtime( true ) - Tulip::config( "START_TIME" ) ) , 2 ) ?> seconds.
 		<br />
 		<span class="passed"><?= $pass ?></span> out of
 		<span class="total"><?= $pass + $fail ?></span> tests passed,

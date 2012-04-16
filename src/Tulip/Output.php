@@ -8,7 +8,7 @@ header("Expires: Mon, 12 Apr 1975 06:00:00 GMT");
 
 Tulip::config( "QUERY_STRING" , isset( $_SERVER[ "QUERY_STRING" ] ) ? urldecode( $_SERVER[ "QUERY_STRING" ] ) : "" );
 
-Tulip::config( "START_TIME" , microtime() );
+Tulip::config( "START_TIME" , microtime( true ) );
 
 ob_start();
 
